@@ -446,7 +446,7 @@ class RobotiqGripper( mm.Instrument ):
         
         
         #Check if the grippre is activated
-        if self.isActivated == False:
+        if self.isActivated() == False:
             raise Exception ("Gripper must be activated before requesting\
                              an action.")
 
@@ -610,12 +610,12 @@ class RobotiqGripper( mm.Instrument ):
         self.closemm=closemm
         self.openmm=openmm
         
-        self.openGripper()
+        self.open()
         #get open bit
         self.openbit=self.getPosition()
         obit=self.openbit
         
-        self.closeGripper()
+        self.close()
         #get close bit
         self.closebit=self.getPosition()
         cbit=self.closebit
